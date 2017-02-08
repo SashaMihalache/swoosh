@@ -6,7 +6,11 @@ class Portrait extends Component {
     return (
       <div className="portrait">
         <h2 className="title">{this.props.selectedCharacter.name}</h2>
-        <img className="avatar" src={this.props.selectedCharacter.pictureURL} alt="fak"/>
+        <object 
+          className="avatar"
+          data={this.props.selectedCharacter.svgURL} 
+          type="image/svg+xml">
+        </object>
       </div>
     );
   }

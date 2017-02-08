@@ -8,7 +8,7 @@ class CharacterList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeIndex: 0
+      activeIndex: this.props.selectedIndex || 0
     };
     this.renderCharacter = this.renderCharacter.bind(this);
   }
@@ -18,9 +18,11 @@ class CharacterList extends Component {
   }
 
   setActiveItem(index) {
-    this.setState({
-      activeIndex: index
-    });
+    if(index !== this.state.activeIndex) {
+      this.setState({
+        activeIndex: index
+      });
+    }
   }
   
   renderCharacter(character, index) {

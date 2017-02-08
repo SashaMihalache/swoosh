@@ -8,10 +8,11 @@ class CharacterPage extends Component {
   render() {
     const mockData = this.props.mockData;
     const charId = this.props.params.characterId ? this.props.params.characterId : mockData.characters[0].username;
-    const selectedCharacter = mockData.characters.find(character => character.username === charId);
+    const selectedIndex = mockData.characters.findIndex(character => character.username === charId);
+    const selectedCharacter = mockData.characters[selectedIndex];
     return (
     <div className="character-page">
-        <CharacterList characters={mockData.characters} />
+        <CharacterList characters={mockData.characters} selectedIndex={selectedIndex} />
         <Portrait selectedCharacter={selectedCharacter} />
         <CharacterZone assignedZone={'fak'} />
       </div>
