@@ -1,15 +1,23 @@
 .portrait {
-  width: 500px;
-  margin: 0 auto;
+  /*background: blue;*/
+  flex: 1;
+  display: flex;
+  /*height: 60%;*/
+  flex-flow: column;
 }
 
 .portrait .title {
+  margin:0 auto;
+  padding: 10px 0 0 0;
   text-align: center;
   color: white;
+  display: flex;
+  height: 40px;
 }
 
 .portrait .avatar {
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
+  margin:0 auto;
+  
+  width: 400px;
+  height: 400px;
 }

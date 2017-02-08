@@ -1,48 +1,93 @@
-/*SIDEBAR*/
-.menu {
-  width: 80%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.menu .list-item {
-  list-style: none;
-  width: auto;
-}
-
-.menu ul {
-  margin: 0 auto;
-}
-
-.menu .list-item a {
-  display: block;
-  float: left;
-  width: 25%;
-  padding: 25px 0;
-  text-align: center;
-  font-family: 'HeydingsCommonIconsRegular', Helvetida Neue, sans-serif;
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-size: 40px;
-  color: #fff;
-  background: #ccc;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, .25);
-  transform: .25s;
-}
-
-.menu .list-item a:hover {
-  margin: -10px 0 0 0;
-}
-
-.menu .bg {
+/*Character list component*/
+#character-list {
+  left: 0;
+  margin-top: -75px;
   position: fixed;
-  z-index: -1;
+  top: 50%;
+}
+
+#character-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*#character-list li:first-child a { 
+  border-radius: 0 5px 0 0; 
+}
+#character-list li:last-child a { 
+  border-radius: 0 0 5px 0; 
+}*/
+
+#character-list a {
+  opacity: 1;
+  color: #000;
+  display: block;
+  height: 50px;
+  font-size: 18px;
+  line-height: 50px;
+  position: relative;
+  text-align: center;
+  width: 50px;
+  text-decoration: none;
+  border-right: 1px solid black;
+}
+
+#character-list a:hover span {
+  left: 130%;
+  opacity: 1;
+}
+
+#character-list a span {
+	border-radius: 3px;
+	line-height: 24px;
+	left: -100%;
+	margin-top: -16px;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	padding: 4px 8px;
+	position: absolute;
+	-webkit-transition: opacity .3s, left .4s;
+	-moz-transition: opacity .3s, left .4s;
+	-ms-transition: opacity .3s, left .4s;
+	-o-transition: opacity .3s, left .4s;
+	transition: opacity .3s, left .4s;
+	top: 50%;
+  white-space: nowrap;
+	z-index: 1;
+}
+
+#character-list a.active {
+  background: #000;
+  color: #fff;
+}
+
+#character-list a span:before {
+	content: "";
+	display: block;
+	height: 8px;
+	left: -4px;
+	margin-top: -4px;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	width: 8px;
+	z-index: 1;
+}
+/* 
+#character-list .bg {
+  position: fixed;
+  z-index: -100;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   transition: .25s;
   pointer-events: none;
-}
+  opacity: 1;
+}*/

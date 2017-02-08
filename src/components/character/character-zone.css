@@ -1,0 +1,6 @@
+.character-zone {
+  /*background: green;*/
+  /*display: flex;*/
+  flex: 1;
+  padding: 20px 10px 10px 10px;
+}

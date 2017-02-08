@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { getInitialOfName } from '../utils/common';
 import { Link } from 'react-router';
 import './character-list.css';
+import Radium from 'radium';
 
 class CharacterList extends Component {
   constructor(props) {
@@ -24,12 +25,27 @@ class CharacterList extends Component {
   
   renderCharacter(character, index) {
     const initial = getInitialOfName(character.name);
-    const listItemStyle = { background: character.color };
+    const listItemStyle = {
+      base: {
+        ':hover':  {
+          background: character.color,
+        }
+      }
+    };
+    const activeItem = index === this.state.activeIndex ? 'active' : '';
 
     return (
-      <li className="list-item" key={character.id} onClick={this.setActiveItem.bind(this, index)} >
-        <Link to={character.username} style={listItemStyle}>
+      <li 
+        key={character.id} 
+        onClick={this.setActiveItem.bind(this, index)} 
+        style={[listItemStyle.base]}
+      >
+        <Link 
+          to={character.username} 
+          className={activeItem}
+        >
           {initial}
+          <span>{character.name}</span>
         </Link>
       </li>
     );
@@ -41,14 +57,14 @@ class CharacterList extends Component {
     };
 
     return (
-        <div className="menu">
+        <nav id="character-list">
           <ul>
             {
               this.props.characters.map(this.renderCharacter)
             }        
           </ul>
           <div className="bg" style={backgroundStyle}></div>
-        </div>
+        </nav>
     );
   }
 }
@@ -56,5 +72,7 @@ class CharacterList extends Component {
 CharacterList.propTypes = {
   characters: PropTypes.array.isRequired
 }
+
+CharacterList = Radium(CharacterList);
 
 export default CharacterList;
