@@ -1,5 +1,5 @@
 export const mockData = {
-  'appname': 'Swoosh',
+  'appName': 'Swoosh',
   'characters': [
       {
         'id': 1,

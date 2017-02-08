@@ -1,8 +1,9 @@
 import React, { PropTypes, Component } from 'react';
-import { getInitialOfName } from '../../utils/common';
+import { getInitialOfName } from '../utils/common';
 import { Link } from 'react-router';
+import './character-list.css';
 
-class SideBar extends Component {
+class CharacterList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,8 +53,8 @@ class SideBar extends Component {
   }
 }
 
-SideBar.propTypes = {
+CharacterList.propTypes = {
   characters: PropTypes.array.isRequired
 }
 
-export default SideBar;
+export default CharacterList;

@@ -1,21 +1,4 @@
-/*HEADER*/
-.header {
-  width: 100%;
-  background-color: #191919;
-  height: 50px;
-  padding: 1em 0 3em 0;
-}
-
-.header .title {
-  color: #fff;
-  vertical-align: middle;
-  text-align: center;
-}
-
-
 /*SIDEBAR*/
- 
- 
 .menu {
   width: 80%;
   margin: 0 auto;
