@@ -6,15 +6,13 @@ body {
 }
 
 #bg {
-  background: #00aced;
-  /*background: rgba(0, 172, 237, 0.3);*/
   position: fixed;
   z-index: -100;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  transition: .25s;
+  transition: .40s;
   pointer-events: none;
-  opacity: 1;
+  opacity: .4;
 }

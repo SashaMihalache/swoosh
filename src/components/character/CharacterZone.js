@@ -1,27 +1,40 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import './character-zone.css';
 
-const CharacterZone = ({assignedZone}) => {
+const CharacterZone = ({assignedZone, weekNr, color}) => {
+  const renderedChores = assignedZone.chores.map((chore, index) => 
+    <li key={index} className="chores-list-item">{chore}</li> 
+  );
+
+  const backgroundColor = { backgroundColor: color };
+
   return (
     <div className="character-container">
       <div className="character-zone">
-        <header className="header">Bathroom</header>
+        <header className="header" style={backgroundColor}>{assignedZone.name}</header>
         <section className="zone-section">
-          <img src="/images/jpg/zones/bathroom.jpg" alt="" className="zone-image"/>
+          <img src={assignedZone.imageURL} alt="fak" className="zone-image"/>
         </section>
-          <footer className="chores">
-            <div className="chores-title">Chores</div>
+          <footer className="chores" style={backgroundColor}>
+            <div className="chores-title">Chores for week {weekNr}</div>
             <ul className="chores-list">
-              <li className="chores-list-item">Aragaz</li>
-              <li className="chores-list-item">Podea</li>
-              <li className="chores-list-item">Masa</li>
-              <li className="chores-list-item">Chiuveta</li>
-              <li className="chores-list-item">Chiuveta</li>
+              {renderedChores}
             </ul>
           </footer>
       </div>
     </div>
   );
 };
+
+CharacterZone.propTypes = {
+  assignedZone: PropTypes.object.isRequired,
+  assignedZone: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    imageURL: PropTypes.string.isRequired,
+    chores: PropTypes.array.isRequired
+  }),
+  weekNr: PropTypes.number.isRequired
+}
 
 export default CharacterZone;

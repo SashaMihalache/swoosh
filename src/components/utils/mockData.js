@@ -34,19 +34,30 @@ export const mockData = {
         'color': '#66aa66'
       }
   ],
-  'zones': {
-    'Kitchen': {
-      "imageURL": '/images/zones/kitchen.jpg',
+  'zones': [
+    {
+      "id": 1,
+      "name": "Kitchen",
+      "imageURL": '/images/jpg/zones/kitchen.jpg',
       "chores": ['Stove', 'Floor', 'Table', 'Sink']
     },
-    'Hallways': {
-      imageURL: '/images/zones/hallways.jpg'
+    {
+      "id": 2,
+      "name": "Hallways",
+      "imageURL": '/images/jpg/zones/hallways.jpg',
+      "chores": ['Basically, the hallways', 'Stairway to heaven', "Front entrance"]
     },
-    'Bathrooms': {
-      imageURL: '/images/zones/bathroom.jpg'
+    {
+      "id": 3,
+      "name": "Bathrooms",
+      "imageURL": '/images/jpg/zones/bathroom.jpg',
+      "chores": ['Hot tub of love', 'Sink', 'Toilets', 'Floor']
     },
-    'Garage & Front Lawn': {
-      imageURL: '/images/zones/garage.jpg'
+    {
+      "id": 4,
+      "name": "Garage & Front Lawn",
+      "imageURL": '/images/jpg/zones/garage.jpg',
+      "chores": ['The garage, ofc', 'The Front Lawn', 'Doorstep']
     }
-  }
+  ]
 };
