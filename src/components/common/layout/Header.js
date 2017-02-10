@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import './Header.css';
 
-const componentName = ({ title }) => {
+const Header = ({ title }) => {
   return (
     <header className="header">
       <h1 className="title">{title}</h1>
@@ -9,8 +9,8 @@ const componentName = ({ title }) => {
   );
 };
 
-componentName.propTypes = {
+Header.propTypes = {
   title: PropTypes.string.isRequired
 };
 
-export default componentName;
+export default Header;

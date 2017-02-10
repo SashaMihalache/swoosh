@@ -27,7 +27,6 @@ const CharacterZone = ({assignedZone, weekNr, color}) => {
 };
 
 CharacterZone.propTypes = {
-  assignedZone: PropTypes.object.isRequired,
   assignedZone: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
