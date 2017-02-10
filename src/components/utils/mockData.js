@@ -5,7 +5,7 @@ export const mockData = {
         'id': 1,
         'name' : 'sasha mihalache',
         'username' : 'sasha',
-        'pictureURL': '/images/jpg/sasha-triangles-100.png',
+        'pictureURL': '/images/characters/jpg/sasha-triangles-100.png',
         'svgURL': '/images/svg/sasha.svg',
         'color': '#00aced'
       },
@@ -13,7 +13,7 @@ export const mockData = {
         'id': 2,
         'name' : 'tudor beleuta',
         'username' : 'tudor',
-        'pictureURL': '/images/jpg/tudor-triangles-100.png',
+        'pictureURL': '/images/characters/jpg/tudor-triangles-100.png',
         'svgURL': '/images/svg/tudor.svg',
         'color': '#ff6d6d',
       },
@@ -21,7 +21,7 @@ export const mockData = {
         'id': 3,
         'name' : 'dan rosca',
         'username' : 'dan',
-        'pictureURL': '/images/jpg/koober-triangles-100.png',
+        'pictureURL': '/images/characters/jpg/koober-triangles-100.png',
         'svgURL': '/images/svg/dan.svg',
         'color': '#F1C40F',
       },
@@ -29,15 +29,24 @@ export const mockData = {
         'id': 4,
         'name' : 'roli tolnay',
         'username': 'roli',
-        'pictureURL': '/images/jpg/roli-triangles-100.png',
+        'pictureURL': '/images/characters/jpg/roli-triangles-100.png',
         'svgURL': '/images/svg/roli.svg',
         'color': '#66aa66'
       }
   ],
-  'zones': [
-    'Kitchen',
-    'Hallways',
-    'Bathrooms',
-    'Garage & Front Lawn'
-  ]
+  'zones': {
+    'Kitchen': {
+      "imageURL": '/images/zones/kitchen.jpg',
+      "chores": ['Stove', 'Floor', 'Table', 'Sink']
+    },
+    'Hallways': {
+      imageURL: '/images/zones/hallways.jpg'
+    },
+    'Bathrooms': {
+      imageURL: '/images/zones/bathroom.jpg'
+    },
+    'Garage & Front Lawn': {
+      imageURL: '/images/zones/garage.jpg'
+    }
+  }
 };

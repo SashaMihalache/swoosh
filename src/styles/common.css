@@ -6,8 +6,8 @@ body {
 }
 
 #bg {
-  /*background: #00aced;*/
-  background: rgba(0, 172, 237, 0.3);
+  background: #00aced;
+  /*background: rgba(0, 172, 237, 0.3);*/
   position: fixed;
   z-index: -100;
   top: 0;
