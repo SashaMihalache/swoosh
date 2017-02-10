@@ -15,7 +15,7 @@ export const mockData = {
         'username' : 'tudor',
         'pictureURL': '/images/characters/jpg/tudor-triangles-100.png',
         'svgURL': '/images/svg/tudor.svg',
-        'color': '#ff6d6d',
+        'color': '#FF3737',
       },
       {
         'id': 3,
@@ -51,13 +51,13 @@ export const mockData = {
       "id": 3,
       "name": "Bathrooms",
       "imageURL": '/images/jpg/zones/bathroom.jpg',
-      "chores": ['Hot tub of love', 'Sink', 'Toilets', 'Floor']
+      "chores": ['Hot tub of love', 'Sink', 'Mirrors', 'Toilets', 'Floor']
     },
     {
       "id": 4,
       "name": "Garage & Front Lawn",
       "imageURL": '/images/jpg/zones/garage.jpg',
-      "chores": ['The garage, ofc', 'The Front Lawn', 'Doorstep']
+      "chores": ['The Garage, ofc', 'The Front Lawn', 'Doorstep', 'Garbage (Collection)']
     }
   ]
 };
