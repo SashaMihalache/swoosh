@@ -7,7 +7,7 @@ export const mockData = {
         'username' : 'sasha',
         'pictureURL': '/images/jpg/sasha-triangles-100.png',
         'svgURL': '/images/svg/sasha.svg',
-        'color': '#ff6d6d'
+        'color': '#00aced'
       },
       {
         'id': 2,
@@ -15,7 +15,7 @@ export const mockData = {
         'username' : 'tudor',
         'pictureURL': '/images/jpg/tudor-triangles-100.png',
         'svgURL': '/images/svg/tudor.svg',
-        'color': '#66aa66',
+        'color': '#ff6d6d',
       },
       {
         'id': 3,
@@ -23,7 +23,7 @@ export const mockData = {
         'username' : 'dan',
         'pictureURL': '/images/jpg/koober-triangles-100.png',
         'svgURL': '/images/svg/dan.svg',
-        'color': '#ffca6d',
+        'color': '#F1C40F',
       },
       {
         'id': 4,
@@ -31,7 +31,7 @@ export const mockData = {
         'username': 'roli',
         'pictureURL': '/images/jpg/roli-triangles-100.png',
         'svgURL': '/images/svg/roli.svg',
-        'color': '#6dcaff'
+        'color': '#66aa66'
       }
   ],
   'zones': [

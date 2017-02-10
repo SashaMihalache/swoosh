@@ -55,7 +55,7 @@
 	transition: opacity .3s, left .4s;
 	top: 50%;
   white-space: nowrap;
-	z-index: 1;
+	z-index: 100;
 }
 
 #character-list a.active {
@@ -77,10 +77,26 @@
 	-o-transform: rotate(45deg);
 	transform: rotate(45deg);
 	width: 8px;
-	z-index: 1;
+	z-index: 100;
 }
-/* 
-#character-list .bg {
+
+#character-list a[class*="sasha"]:hover,
+#character-list a[class*="sasha"] span,
+#character-list a[class*="sasha"] span:before { background: #00aced; }
+
+#character-list a[class*="tudor"]:hover,
+#character-list a[class*="tudor"] span,
+#character-list a[class*="tudor"] span:before { background: #ff6d6d; }
+
+#character-list a[class*="dan"]:hover,
+#character-list a[class*="dan"] span,
+#character-list a[class*="dan"] span:before { background: #F1C40F; }
+
+#character-list a[class*="roli"]:hover,
+#character-list a[class*="roli"] span,
+#character-list a[class*="roli"] span:before { background: #66aa66; }
+ 
+/*#character-list .bg {
   position: fixed;
   z-index: -100;
   top: 0;
@@ -89,5 +105,5 @@
   left: 0;
   transition: .25s;
   pointer-events: none;
-  opacity: 1;
+  opacity: .1;
 }*/

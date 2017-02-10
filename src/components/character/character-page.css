@@ -1,10 +1,15 @@
 .character-page {
   width: 80%;
   min-width: 400px;
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   flex-flow: row wrap;
+  flex-wrap: wrap;
   flex-direction: row;
-  height: 778px;
-  box-shadow: 10px 10px 10px 10px #aaa;
+  /*height: auto;*/
+  /*height: 778px;*/
+  min-height: 600px;
+  /*box-shadow: 10px 10px 5px 5px #aaa;*/
+  background: #fff;
+  /*background:red;*/
 }
