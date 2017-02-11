@@ -4,7 +4,7 @@ import CharacterList from './CharacterList';
 import CharacterZone from './CharacterZone';
 import './character-page.css';
 import {getCalculatedAssignedZone, getWeekNumber} from '../utils/datesCalculator';
-import { updatePolygonsArrays } from '../utils/polygonAlgorithm';
+import { morphPictures } from '../utils/polygorithm';
 
 class CharacterPage extends Component {
 
@@ -21,8 +21,8 @@ class CharacterPage extends Component {
       assignedZone: this.calculateAssignedZone(activeIndex, currentWeekNr),
       activeIndex,
       currentWeekNr,
-      toPolygonArray: [],
-      fromPolygonArray: []
+      // fromPolygonArray: [],
+      // toPolygonArray: []
     };
   }
 
@@ -34,18 +34,51 @@ class CharacterPage extends Component {
     const index = this.props.mockData.characters.findIndex(c => c === character);
     if(index !== this.state.activeIndex) {
       const selectedCharacter = this.props.mockData.characters[index];
-      const toPolygonArray = updatePolygonsArrays(selectedCharacter.username, this.state.fromPolygonArray, this.state.toPolygonArray);
       const assignedZone = this.calculateAssignedZone(index, this.state.currentWeekNr);
-      this.setState({
-        selectedCharacter,
-        activeIndex: index,
-        assignedZone
-      });
+
+      this.getNextCharacterPortrait(selectedCharacter)
+        .then((data) => {
+          morphPictures(selectedCharacter.username, data)
+            .then((to) => {
+              this.setState({
+                selectedCharacter,
+                activeIndex: index,
+                assignedZone,
+                fromPolygonArray: to,
+                toPolygonArray: data
+              });
+          })
+
+        })
+        .catch(() => {})
     }
   }
+  
+  componentWillMount() {
+    this.getNextCharacterPortrait(this.state.selectedCharacter)
+      .then((data) => {
+        this.setState({
+          fromPolygonArray: data
+        });
+      });
+  }
 
-  componentDidMount() {
-    console.log(document.querySelector('.avatar'));
+  getNextCharacterPortrait(selectedCharacter) {
+    // fetch(`${selectedCharacter.svgURL}`)
+    //   .then(response =>  {
+    //     response.text()
+    // })
+    // .then(svg => {
+    //   console.log(svg);
+    // });
+
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", selectedCharacter.svgURL, false);
+      xhr.overrideMimeType("image/svg+xml");
+      xhr.send("");
+      resolve(xhr.responseXML.documentElement);
+    });
   }
   
   render() {
@@ -58,11 +91,13 @@ class CharacterPage extends Component {
           onSelectCharacter={this.onSelectCharacter}
         />
         
-        <Portrait 
-          selectedCharacter={this.state.selectedCharacter}
-        />
+        <Portrait selectedCharacter={this.state.selectedCharacter} />
 
-        <CharacterZone assignedZone={this.state.assignedZone} weekNr={this.state.currentWeekNr} color={this.state.selectedCharacter.color} />
+        <CharacterZone 
+          assignedZone={this.state.assignedZone} 
+          weekNr={this.state.currentWeekNr} 
+          color={this.state.selectedCharacter.color} 
+        />
         <div id="bg" style={backgroundColor}></div>
       </div>
     );

@@ -1,7 +1,9 @@
 import { TweenMax, Power3, TweenLite } from 'gsap';
 
 export const getCoordinates = (polygon) => {
+  /*eslint-disable */
   return polygon.getAttribute("points").match(/(-?[0-9][0-9\.]*),(-?[0-9][0-9\.]*)\ (-?[0-9][0-9\.]*),(-?[0-9][0-9\.]*)\ (-?[0-9][0-9\.]*),(-?[0-9][0-9\.]*)/);
+  /*eslint-enable */
 };
 
 export const createPolygonPointsObject = (polygons) => {
@@ -24,25 +26,14 @@ export const createPolygonPointsObject = (polygons) => {
   return polygonsArray;
 };
 
-export const updatePolygonsArrays = (idToAnimateTo, fromPolygonArray, toPolygonArray) => {
-  console.log(idToAnimateTo);
-  
-  toPolygonArray = createPolygonPointsObject(
-    document.getElementById(idToAnimateTo)
-      .querySelectorAll('polygon'));
-    
-  animatePolygons(fromPolygonArray, toPolygonArray);
 
-  fromPolygonArray = toPolygonArray;
-  
-  return fromPolygonArray;
-};
-
-export const animatePolygons = (fromPolygonArray, toPolygonArray) => {
+export const animatePolygons = (toPolygonArray) => {
   const polygons = document.querySelector('.svg-holder')
+                            .contentDocument
                             .querySelectorAll('polygon');
-  fromPolygonArray = createPolygonPointsObject(polygons);
-
+  
+  const fromPolygonArray = createPolygonPointsObject(polygons);
+  console.log(Power3.easeInOut);
   fromPolygonArray.forEach((obj, i) => {
     TweenMax.to(obj, 1, {
       one: toPolygonArray[i].one,
@@ -51,7 +42,7 @@ export const animatePolygons = (fromPolygonArray, toPolygonArray) => {
       four: toPolygonArray[i].four,
       five: toPolygonArray[i].five,
       six: toPolygonArray[i].six,
-      ease: Power3.easeOut,
+      ease: Power3.easeInOut,
       onUpdate: () => {
         polygons[i].setAttribute("points", `${obj.one},${obj.two} ${obj.three},${obj.four} ${obj.five},${obj.six}`);
       }
@@ -63,7 +54,21 @@ export const animatePolygons = (fromPolygonArray, toPolygonArray) => {
 
     TweenLite.to(polygon, 1, {
       fill: toColor,
-      ease: Power3.easeOut
+      ease: Power3.easeInOut
     });
   });
 }
+
+export const morphPictures = (idToAnimateTo, toPolygonArray) => {
+  return new Promise((resolve, reject) => {
+
+    const polygons = toPolygonArray.querySelectorAll('polygon');
+    const to = createPolygonPointsObject(polygons);
+    
+    animatePolygons(to);
+
+    // fromPolygonArray = to;
+  
+    resolve(to);
+  });
+};

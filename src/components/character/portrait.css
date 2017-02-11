@@ -18,7 +18,8 @@
 
 .portrait .avatar {
   margin:0 auto;
-  
+  box-shadow: 5px 5px 5px 5px #2a2a2a;
+  border-radius: 10px;
   width: 400px;
   height: 400px;
 }

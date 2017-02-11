@@ -12,7 +12,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  transition: 1s;
+  transition: 2s;
   pointer-events: none;
   opacity: .4;
 }
