@@ -4,6 +4,7 @@ import CharacterList from './CharacterList';
 import CharacterZone from './CharacterZone';
 import './character-page.css';
 import {getCalculatedAssignedZone, getWeekNumber} from '../utils/datesCalculator';
+import { updatePolygonsArrays } from '../utils/polygonAlgorithm';
 
 class CharacterPage extends Component {
 
@@ -19,7 +20,9 @@ class CharacterPage extends Component {
       selectedCharacter: mockData.characters[activeIndex],
       assignedZone: this.calculateAssignedZone(activeIndex, currentWeekNr),
       activeIndex,
-      currentWeekNr
+      currentWeekNr,
+      toPolygonArray: [],
+      fromPolygonArray: []
     };
   }
 
@@ -30,13 +33,19 @@ class CharacterPage extends Component {
   onSelectCharacter({character}) {
     const index = this.props.mockData.characters.findIndex(c => c === character);
     if(index !== this.state.activeIndex) {
+      const selectedCharacter = this.props.mockData.characters[index];
+      const toPolygonArray = updatePolygonsArrays(selectedCharacter.username, this.state.fromPolygonArray, this.state.toPolygonArray);
       const assignedZone = this.calculateAssignedZone(index, this.state.currentWeekNr);
       this.setState({
-        selectedCharacter: this.props.mockData.characters[index],
+        selectedCharacter,
         activeIndex: index,
         assignedZone
       });
     }
+  }
+
+  componentDidMount() {
+    console.log(document.querySelector('.avatar'));
   }
   
   render() {
@@ -50,7 +59,7 @@ class CharacterPage extends Component {
         />
         
         <Portrait 
-          selectedCharacter={this.state.selectedCharacter} 
+          selectedCharacter={this.state.selectedCharacter}
         />
 
         <CharacterZone assignedZone={this.state.assignedZone} weekNr={this.state.currentWeekNr} color={this.state.selectedCharacter.color} />

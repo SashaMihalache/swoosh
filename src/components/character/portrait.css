@@ -22,3 +22,7 @@
   width: 400px;
   height: 400px;
 }
+
+.portrait .hidden {
+  display: none;
+}
