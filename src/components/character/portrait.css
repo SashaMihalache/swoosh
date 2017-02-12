@@ -6,16 +6,7 @@
   flex-flow: column;
   min-height: 500px;
 }
-
-.portrait .title {
-  margin:0 auto;
-  padding: 10px 0 0 0;
-  text-align: center;
-  color: #2c2c2c;
-  display: flex;
-  height: 40px;
-}
-
+ 
 .portrait .avatar {
   margin:0 auto;
   box-shadow: 5px 5px 5px 5px #2a2a2a;

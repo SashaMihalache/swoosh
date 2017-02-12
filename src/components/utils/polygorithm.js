@@ -33,7 +33,6 @@ export const animatePolygons = (toPolygonArray) => {
                             .querySelectorAll('polygon');
   
   const fromPolygonArray = createPolygonPointsObject(polygons);
-  console.log(Power3.easeInOut);
   fromPolygonArray.forEach((obj, i) => {
     TweenMax.to(obj, 1, {
       one: toPolygonArray[i].one,

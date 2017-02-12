@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Portrait from './Portrait';
 import CharacterList from './CharacterList';
 import CharacterZone from './CharacterZone';
+import CharacterDetails from './CharacterDetails';
 import './character-page.css';
 import {getCalculatedAssignedZone, getWeekNumber} from '../utils/datesCalculator';
 import { morphPictures } from '../utils/polygorithm';
@@ -91,7 +92,10 @@ class CharacterPage extends Component {
           onSelectCharacter={this.onSelectCharacter}
         />
         
-        <Portrait selectedCharacter={this.state.selectedCharacter} />
+        <div className="appearance">
+          <CharacterDetails character={this.state.selectedCharacter}></CharacterDetails>
+          <Portrait selectedCharacter={this.state.selectedCharacter} />
+        </div>
 
         <CharacterZone 
           assignedZone={this.state.assignedZone} 

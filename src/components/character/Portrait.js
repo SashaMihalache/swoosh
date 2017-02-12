@@ -9,7 +9,6 @@ class Portrait extends Component {
   render() {
     return (
       <div className="portrait">
-        <h2 className="title">{this.props.selectedCharacter.name}</h2>
         <object 
           id={this.props.selectedCharacter.username}
           className="svg-holder avatar"
