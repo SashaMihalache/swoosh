@@ -1,12 +1,24 @@
 import React, { PropTypes } from 'react';
-import './Header.css';
+import AppBar from 'material-ui/AppBar';
+// import './Header.css';
 
 const Header = ({ title }) => {
+  // return (
+  //   <header className="header">
+  //     <h1 className="title">{title}</h1>
+  //   </header>
+  // );
+  function handleFak (e) {
+    console.log(e);
+  }
+
   return (
-    <header className="header">
-      <h1 className="title">{title}</h1>
-    </header>
-  );
+    <AppBar 
+      title={title}
+      onTitleTouchTap={handleFak}
+      showMenuIconButton={true}
+    />
+  )
 };
 
 Header.propTypes = {
