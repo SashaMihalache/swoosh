@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Portrait from './Portrait';
 import CharacterList from './CharacterList';
 import CharacterZone from './CharacterZone';
-import CharacterDetails from './CharacterDetails';
 import { getCalculatedAssignedZone, getWeekNumber } from '../utils/datesCalculator';
 import { morphPictures } from '../utils/polygorithm';
 import './character-page.css';

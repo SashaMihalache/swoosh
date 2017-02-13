@@ -1,6 +1,4 @@
-.character-container {
-  /*background: green;*/
-  /*display: flex;*/
+/*.character-container {
   flex: 1;
   padding: 0 10px 10px 10px;
   min-width: 200px;
@@ -9,8 +7,6 @@
 }
 
 .character-container .character-zone {
-  /*background: green;*/
-  /*display: flex;*/
   box-shadow: 2px 2px 2px 2px #aaa;
   border-radius: 10px;
 }
@@ -33,8 +29,6 @@
   width: 100%;
 }
 .character-container .character-zone .zone-image {
-  /*min-width: 100%;*/
-  /*height: 100%;*/
   height: 100%;
   width: 100%;
 }
@@ -73,4 +67,92 @@
   color: #000;
   background-color: #fff;  
   transition: .25s;
+}*/
+
+.character-zone {
+  min-width: 414px;
+  max-width: 50%;
+  margin: 0 auto;
+  max-height: 400px;
+}
+.character-zone .zone {
+  display: flex;
+}
+
+.character-zone .zone .appearance {
+  position: relative;
+  width: 100vh;
+  flex: 1;
+  margin: 0 auto !important;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+
+.character-zone .zone .appearance .image {
+  width: 100%;
+  height: 320px;
+  padding: 0;
+  margin: 0;
+}
+
+.character-zone .zone .appearance .description {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0,0,0,.1);
+  font-size: 24px;
+  color: white;
+  opacity: 0.1;
+  filter:alpha(opacity=60);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: left;
+  
+}
+.character-zone .zone .appearance .description .description_content {
+  padding: 10px;
+  margin: 0px;
+}
+
+.character-zone .zone .appearance .description .description_content .details{
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.character-zone .chores {
+  height: 320px;
+  background-color: rgba(0, 0, 0, 0.9);
+  
+}
+.character-zone .chores .wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.character-zone .chores .wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  list-style: none;
+  justify-content: flex-start;
+  opacity: .6;
+}
+
+.character-zone .chores .wrapper .chip {
+  color: #fff;
+  font-size: 20px;
+  line-height: 32px;
+  padding-left: 23px;
+  padding-right: 23px;
+  user-select: none;
+  white-space: nowrap;
+  margin: 10px 10px 10px 10px;
+  border-radius: 30px;
+}
+
+.character-zone .chores .wrapper .chip:hover {
+  color: #000;
+  background: #fff;
+  transition:  0.5s;
 }

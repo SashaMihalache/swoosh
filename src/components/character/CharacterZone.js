@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
-// import './character-zone.css';
+import './character-zone.css';
 
 class CharacterZone extends Component {
   constructor(props) {
@@ -19,13 +19,21 @@ class CharacterZone extends Component {
       },
       slide: {
         padding: 10
-      }
+      },
+      chip: {
+        margin: 4
+      },
     };
 
   }
   renderedChores(chores) {
-    chores.map((chore, index) =>
-      <li key={index} className="chores-list-item">{chore}</li>
+    return chores.map((chore, index) =>
+      <li 
+        key={index}
+        className="chip"
+      >
+        {chore}
+      </li>
     );
   }
 
@@ -35,28 +43,10 @@ class CharacterZone extends Component {
     });
   }
 
-  // const
-  // return (
-  //   <div className="character-container">
-  //     <div className="character-zone">
-  //       <header className="header" style={backgroundColor}>{assignedZone.name}</header>
-  //       <section className="zone-section">
-  //         <img src={assignedZone.imageURL} alt="fak" className="zone-image"/>
-  //       </section>
-  //         <footer className="chores" style={backgroundColor}>
-  //           <div className="chores-title">Chores for week {weekNr}</div>
-  //           <ul className="chores-list">
-  //             {renderedChores}
-  //           </ul>
-  //         </footer>
-  //     </div>
-  //   </div>
-  // );
-
   render() {
     // const backgroundColor = { backgroundColor: this.props.color };
     return (
-      <div>
+      <div className="character-zone">
         <Tabs
           onChange={this.handleChange}
           value={this.state.slideIndex}
@@ -68,34 +58,34 @@ class CharacterZone extends Component {
           index={this.state.slideIndex}
           onChangeIndex={this.handleChange}
           >
-          <div>
-            <h2 style={this.styles.headline}>Tabs with slide effect</h2>
-            Swipe to see the next slide.<br />
+          
+          <div className="zone">
+            {/*TODO: REFACTOR THIS*/}
+            <div className="appearance">
+              <img className="image" src={this.props.assignedZone.imageURL} alt="" />
+              <div className="description">
+                <div className="description_content">
+                  <strong>{this.props.assignedZone.name} </strong>
+                  <br/>
+                  <div className="details">
+                    You have been assigned to this zone <br/>
+                    Week Nr. {this.props.weekNr}
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div style={this.styles.slide}>
-            slide n°2
+
+          <div style={this.styles.slide} className="chores">
+            <div className="wrapper">
+              {this.renderedChores(this.props.assignedZone.chores)}
+            </div>
           </div>
         </SwipeableViews>
       </div>
     )
 
-
-    // return (
-    //   <div className="character-container">
-    //     <div className="character-zone">
-    //       <header className="header" style={backgroundColor}>{this.props.assignedZone.name}</header>
-    //       <section className="zone-section">
-    //         <img src={this.props.assignedZone.imageURL} alt="fak" className="zone-image"/>
-    //       </section>
-    //         <footer className="chores" style={backgroundColor}>
-    //           <div className="chores-title">Chores for week {this.props.weekNr}</div>
-    //           <ul className="chores-list">
-    //             {this.renderedChores(this.props.assignedZone.chores)}
-    //           </ul>
-    //         </footer>
-    //     </div>
-    //   </div>
-    // );
   }
 };
 

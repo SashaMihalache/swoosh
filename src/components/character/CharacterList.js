@@ -1,10 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import { getInitialOfName } from '../utils/common';
 import { List, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
-import { pinkA200 } from 'material-ui/styles/colors';
-import ActionGrade from 'material-ui/svg-icons/action/label';
 import './character-list.css';
 
 class CharacterList extends Component {
@@ -14,7 +11,6 @@ class CharacterList extends Component {
   }
  
   renderCharacter(character, index) {
-    const initial = getInitialOfName(character.name);
     const letterAvatar = (
       <Avatar 
         src={character.pictureURL}
@@ -22,15 +18,12 @@ class CharacterList extends Component {
       />
     );
 
-    let selectedIcon;
     let fontWeigth;
     
     if(this.props.activeIndex === index) {
-      selectedIcon = <ActionGrade color={pinkA200} />;
       fontWeigth = {'fontWeight': '700'};
     }
     else {
-      selectedIcon = null;
       fontWeigth = {'fontWeight': '400'};
     }
 
