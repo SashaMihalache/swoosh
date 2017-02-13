@@ -1,5 +1,10 @@
 import React, { PropTypes, Component } from 'react';
 import { getInitialOfName } from '../utils/common';
+import { List, ListItem } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import Avatar from 'material-ui/Avatar';
+import { pinkA200 } from 'material-ui/styles/colors';
+import ActionGrade from 'material-ui/svg-icons/action/label';
 import './character-list.css';
 
 class CharacterList extends Component {
@@ -10,32 +15,49 @@ class CharacterList extends Component {
  
   renderCharacter(character, index) {
     const initial = getInitialOfName(character.name);
-    const listItemStyle = '';
-    const hrefClass = `${character.username} ${this.props.activeIndex === index ? 'active': ''}`;
+    
+    const letterAvatar = (
+      <Avatar 
+        backgroundColor={character.color}
+        size={40}>
+          {initial.toUpperCase()}
+      </Avatar>
+    );
+
+    let selectedIcon;
+    let fontWeigth;
+    
+    if(this.props.activeIndex === index) {
+      selectedIcon = <ActionGrade color={pinkA200} />;
+      fontWeigth = {'fontWeight': '700'};
+    }
+    else {
+      selectedIcon = null;
+      fontWeigth = {'fontWeight': '400'};
+    }
 
     return (
-      <li 
-        key={character.id} 
-        onClick={this.props.onSelectCharacter.bind(this, {character})}
-        style={[listItemStyle.base]}
-      >
-        <a className={hrefClass}>
-          {initial}
-          <span>{character.name}</span>
-        </a>
-      </li>
+      <div key={character.id} >
+        <ListItem
+          style={fontWeigth}
+          onTouchTap={this.props.onSelectCharacter.bind(this, {character})}
+          primaryText={character.name}
+          leftAvatar={letterAvatar}
+          secondaryTextLines={1}
+        > 
+        </ListItem>
+        <Divider />
+      </div>
     );
   }
   
   render() {
     return (
-        <nav id="character-list">
-          <ul>
-            {
-              this.props.characters.map(this.renderCharacter.bind(this))
-            }        
-          </ul>
-        </nav>
+      <List className="character-list">
+          {
+            this.props.characters.map(this.renderCharacter.bind(this))
+          }        
+      </List>
     );
   }
 }

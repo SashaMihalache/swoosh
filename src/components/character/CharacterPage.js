@@ -3,9 +3,9 @@ import Portrait from './Portrait';
 import CharacterList from './CharacterList';
 import CharacterZone from './CharacterZone';
 import CharacterDetails from './CharacterDetails';
-import './character-page.css';
-import {getCalculatedAssignedZone, getWeekNumber} from '../utils/datesCalculator';
+import { getCalculatedAssignedZone, getWeekNumber } from '../utils/datesCalculator';
 import { morphPictures } from '../utils/polygorithm';
+import './character-page.css';
 
 class CharacterPage extends Component {
 
@@ -65,44 +65,41 @@ class CharacterPage extends Component {
   }
 
   getNextCharacterPortrait(selectedCharacter) {
-    // fetch(`${selectedCharacter.svgURL}`)
-    //   .then(response =>  {
-    //     response.text()
-    // })
-    // .then(svg => {
-    //   console.log(svg);
-    // });
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open("GET", selectedCharacter.svgURL, false);
+      xhr.open("GET", selectedCharacter.svgURL, true);
       xhr.overrideMimeType("image/svg+xml");
       xhr.send("");
-      resolve(xhr.responseXML.documentElement);
+      xhr.onload = () => resolve(xhr.responseXML.documentElement);
+      xhr.onerror = (error) =>reject(error);
     });
   }
   
   render() {
-    const backgroundColor = {backgroundColor: this.state.selectedCharacter.color };
+    // const backgroundColor = {backgroundColor: this.state.selectedCharacter.color };
     return (
       <div className="character-page">
-        <CharacterList 
-          characters={this.props.mockData.characters} 
-          activeIndex={this.state.activeIndex} 
-          onSelectCharacter={this.onSelectCharacter}
-        />
-        
-        <div className="appearance">
-          <CharacterDetails character={this.state.selectedCharacter}></CharacterDetails>
-          <Portrait selectedCharacter={this.state.selectedCharacter} />
-        </div>
+          <div className="left-section">
+            <CharacterList 
+              characters={this.props.mockData.characters} 
+              activeIndex={this.state.activeIndex} 
+              onSelectCharacter={this.onSelectCharacter}
+            />
+          </div>
+          
+          <div className="right-section">
+            <div className="appearance">
+              <CharacterDetails character={this.state.selectedCharacter}></CharacterDetails>
+              <Portrait selectedCharacter={this.state.selectedCharacter} />
+            </div>
 
-        <CharacterZone 
-          assignedZone={this.state.assignedZone} 
-          weekNr={this.state.currentWeekNr} 
-          color={this.state.selectedCharacter.color} 
-        />
-        <div id="bg" style={backgroundColor}></div>
+            <CharacterZone 
+              assignedZone={this.state.assignedZone} 
+              weekNr={this.state.currentWeekNr} 
+              color={this.state.selectedCharacter.color} 
+            />
+          </div>
       </div>
     );
   }

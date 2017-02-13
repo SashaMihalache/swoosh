@@ -3,7 +3,7 @@ export const mockData = {
   'characters': [
       {
         'id': 1,
-        'name' : 'sasha mihalache',
+        'name' : 'Sasha Mihalache',
         'username' : 'sasha',
         'pictureURL': '/images/characters/jpg/sasha-triangles-100.png',
         'svgURL': '/images/svg/sasha.svg',
@@ -11,7 +11,7 @@ export const mockData = {
       },
       {
         'id': 2,
-        'name' : 'tudor beleuta',
+        'name' : 'Tudor Beleuta',
         'username' : 'tudor',
         'pictureURL': '/images/characters/jpg/tudor-triangles-100.png',
         'svgURL': '/images/svg/tudor.svg',
@@ -19,7 +19,7 @@ export const mockData = {
       },
       {
         'id': 3,
-        'name' : 'dan rosca',
+        'name' : 'Dan Rosca',
         'username' : 'dan',
         'pictureURL': '/images/characters/jpg/koober-triangles-100.png',
         'svgURL': '/images/svg/dan.svg',
@@ -27,7 +27,7 @@ export const mockData = {
       },
       {
         'id': 4,
-        'name' : 'roli tolnay',
+        'name' : 'Roli Tolnay',
         'username': 'roli',
         'pictureURL': '/images/characters/jpg/roli-triangles-100.png',
         'svgURL': '/images/svg/roli.svg',
