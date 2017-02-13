@@ -15,13 +15,11 @@ class CharacterList extends Component {
  
   renderCharacter(character, index) {
     const initial = getInitialOfName(character.name);
-    
     const letterAvatar = (
       <Avatar 
-        backgroundColor={character.color}
-        size={40}>
-          {initial.toUpperCase()}
-      </Avatar>
+        src={character.pictureURL}
+        size={40}
+      />
     );
 
     let selectedIcon;

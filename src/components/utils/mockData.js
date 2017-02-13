@@ -5,7 +5,7 @@ export const mockData = {
         'id': 1,
         'name' : 'Sasha Mihalache',
         'username' : 'sasha',
-        'pictureURL': '/images/characters/jpg/sasha-triangles-100.png',
+        'pictureURL': '/images/jpg/characters/sasha-triangles-100.png',
         'svgURL': '/images/svg/sasha.svg',
         'color': '#00aced'
       },
@@ -13,7 +13,7 @@ export const mockData = {
         'id': 2,
         'name' : 'Tudor Beleuta',
         'username' : 'tudor',
-        'pictureURL': '/images/characters/jpg/tudor-triangles-100.png',
+        'pictureURL': '/images/jpg/characters/tudor-triangles-100.png',
         'svgURL': '/images/svg/tudor.svg',
         'color': '#FF3737',
       },
@@ -21,7 +21,7 @@ export const mockData = {
         'id': 3,
         'name' : 'Dan Rosca',
         'username' : 'dan',
-        'pictureURL': '/images/characters/jpg/koober-triangles-100.png',
+        'pictureURL': '/images/jpg/characters/koober-triangles-100.png',
         'svgURL': '/images/svg/dan.svg',
         'color': '#F1C40F',
       },
@@ -29,7 +29,7 @@ export const mockData = {
         'id': 4,
         'name' : 'Roli Tolnay',
         'username': 'roli',
-        'pictureURL': '/images/characters/jpg/roli-triangles-100.png',
+        'pictureURL': '/images/jpg/characters/roli-triangles-100.png',
         'svgURL': '/images/svg/roli.svg',
         'color': '#66aa66'
       }

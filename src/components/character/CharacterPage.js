@@ -22,8 +22,6 @@ class CharacterPage extends Component {
       assignedZone: this.calculateAssignedZone(activeIndex, currentWeekNr),
       activeIndex,
       currentWeekNr,
-      // fromPolygonArray: [],
-      // toPolygonArray: []
     };
   }
 
@@ -77,7 +75,6 @@ class CharacterPage extends Component {
   }
   
   render() {
-    // const backgroundColor = {backgroundColor: this.state.selectedCharacter.color };
     return (
       <div className="character-page">
           <div className="left-section">
@@ -89,9 +86,14 @@ class CharacterPage extends Component {
           </div>
           
           <div className="right-section">
+          
             <div className="appearance">
-              <CharacterDetails character={this.state.selectedCharacter}></CharacterDetails>
               <Portrait selectedCharacter={this.state.selectedCharacter} />
+              <div className="description">
+                <div className="description_content">
+                  {this.state.selectedCharacter.name}
+                </div>
+              </div>
             </div>
 
             <CharacterZone 
