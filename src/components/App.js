@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './common/layout/Header';
+import Footer from './common/layout/Footer';
 import { mockData } from './utils/mockData';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -14,6 +15,7 @@ class App extends Component {
           {
             React.cloneElement(this.props.children, {mockData})
           }
+          <Footer />
         </div>
       </MuiThemeProvider>
     );

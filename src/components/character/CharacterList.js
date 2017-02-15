@@ -18,23 +18,26 @@ class CharacterList extends Component {
       />
     );
 
-    let fontWeigth;
-    
+    let style;
+    let activeClass;
     if(this.props.activeIndex === index) {
-      fontWeigth = {'fontWeight': '700'};
+      style = {'fontWeight': '700', 'color': '#fff'};
+      activeClass = 'resizable-text active';
     }
     else {
-      fontWeigth = {'fontWeight': '400'};
+      style = {'fontWeight': '400', 'color': '#fff'};
+      activeClass = 'resizable-text ';
     }
-
+    
     return (
       <div key={character.id} >
         <ListItem
-          style={fontWeigth}
+          className={activeClass}
+          style={style}
           onTouchTap={this.props.onSelectCharacter.bind(this, {character})}
           primaryText={character.name}
           leftAvatar={letterAvatar}
-          secondaryTextLines={1}
+          secondaryTextLines={2}
         > 
         </ListItem>
         <Divider />

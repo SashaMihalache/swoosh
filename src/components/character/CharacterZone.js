@@ -65,7 +65,7 @@ class CharacterZone extends Component {
               <img className="image" src={this.props.assignedZone.imageURL} alt="" />
               <div className="description">
                 <div className="description_content">
-                  <strong>{this.props.assignedZone.name} </strong>
+                  <strong className="assigned-zone">{this.props.assignedZone.name} </strong>
                   <br/>
                   <div className="details">
                     You have been assigned to this zone <br/>

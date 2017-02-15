@@ -9,11 +9,15 @@
     border-right: 1px solid rgb(224, 224, 224);
   }
 
+  .character-page .right-section {
+    width: 100%;
+  }
+
   .character-page .right-section .appearance {
     text-align: center;
     position: relative;
     width: 300px;
-    margin: 10px auto;
+    margin: 30px auto;
   }
 
 }
@@ -28,6 +32,10 @@
     flex-direction: column;
   }
 
+  .character-page .right-section {
+    width: 100%;
+  }
+
   .character-page .right-section .appearance {
     text-align: center;
     position: relative;
@@ -36,13 +44,6 @@
   }
 
 }
-
-
-
-.character-page .right-section {
-  width: 100%;
-}
-
 
 
 .character-page .right-section .appearance .description {

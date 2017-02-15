@@ -1,25 +1,41 @@
 /*Character list component*/
 @media (min-width: 800px) {
-  .character-list {
-    height: 100vh;
+  .character-list .resizable-text {
+    font-size: 14px !important;
+  }
+  .character-list .active {
+    font-size: 22px !important;
   }
 }
 
 @media (max-width: 800px) {
   .character-list {
     display: flex;
-    flex-grow: 1;
-    flex-shrink: 1;
-    padding: 0 !important;
-    height: 70px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 130px;
+  }
+
+  .character-list .resizable-text {
+    font-size: 14px !important;
+  }
+  .character-list  .active {
+    font-size: 18px !important;
   }
 }
-@media (max-width: 580px) {
+
+@media (max-width: 600px) {
   .character-list {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    height: 17vh;
-    
+    height: 130px;
+  }
+
+  .character-list .resizable-text {
+    font-size: 9px !important;
+  }
+  .character-list  .active {
+    font-size: 14px !important;
   }
 }
