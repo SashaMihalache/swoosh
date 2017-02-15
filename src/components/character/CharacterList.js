@@ -13,7 +13,7 @@ class CharacterList extends Component {
   renderCharacter(character, index) {
     const letterAvatar = (
       <Avatar 
-        src={character.pictureURL}
+        src={character.svgURL}
         size={40}
       />
     );
@@ -28,7 +28,7 @@ class CharacterList extends Component {
       style = {'fontWeight': '400', 'color': '#fff'};
       activeClass = 'resizable-text ';
     }
-    
+
     return (
       <div key={character.id} >
         <ListItem
