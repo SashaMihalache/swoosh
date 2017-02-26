@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Portrait from './Portrait';
 import CharacterList from './CharacterList';
 import CharacterZone from './CharacterZone';
-import { getCalculatedAssignedZone, getWeekNumber } from '../utils/datesCalculator';
+import { 
+  getCalculatedAssignedZone, 
+  getWeekNumberFromMonday 
+} from '../utils/datesCalculator';
 import { morphPictures } from '../utils/polygorithm';
 import './character-page.css';
 
@@ -14,8 +17,7 @@ class CharacterPage extends Component {
     const mockData = this.props.mockData;
     const charId = this.props.params.characterId ? this.props.params.characterId : mockData.characters[0].username;
     const activeIndex = mockData.characters.findIndex(character => character.username === charId);
-    const currentWeekNr = getWeekNumber(new Date());
-    
+    const currentWeekNr = getWeekNumberFromMonday(new Date());
     this.state = {
       selectedCharacter: mockData.characters[activeIndex],
       assignedZone: this.calculateAssignedZone(activeIndex, currentWeekNr),
@@ -62,7 +64,6 @@ class CharacterPage extends Component {
   }
 
   getNextCharacterPortrait(selectedCharacter) {
-
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open("GET", selectedCharacter.svgURL, true);
